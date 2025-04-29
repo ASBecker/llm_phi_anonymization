@@ -1,0 +1,26 @@
+[{
+        "description": "Remove signature Rule 1",
+        "pattern": "Electronic Signature.*",
+        "flags": "gi"
+    },
+    {
+        "description": "Remove signature Rule 2",
+        "pattern": "(Prepared by|Electronically signed).*",
+        "flags": "gi"
+    },
+    {
+        "description": "Remove patient name Rule 1",
+        "pattern": "PATIENT NAME.*?(Service Date:|History|Clinical)",
+        "flags": "gi"
+    },
+    {
+        "description": "Remove patient name Rule 2",
+        "pattern": "[^.]*(?:patient's name|patient name)[^.]*\\.",
+        "flags": "gi"
+    },
+    {
+        "description": "Remove MRN",
+        "pattern": "MRN(?:\\s*number)?[[:punct:]]?\\s*(\\d+)",
+        "flags": "gi"
+    }
+]
