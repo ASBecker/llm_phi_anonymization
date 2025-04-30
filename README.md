@@ -41,11 +41,13 @@ The core method involves using LLMs to generate Regular Expression (RegEx) rules
     ```bash
     pip install -r requirements.txt
     ```
-3.  **Set up Ollama:** Ensure Ollama (v0.5.0 or compatible) is installed and running. Pull the desired models:
+3.  **Set up Ollama:** Ensure Ollama (v0.6.6 or newer) is installed and running. Pull the desired models:
     ```bash
-    ollama pull qwen2.5-coder:7b
+    ollama pull qwen3:32b
+    # ... pull other models as needed:
     ollama pull qwen2.5-coder:32b
-    # ... pull other models as needed
+    ollama pull qwen2.5-coder:7b
+    # ... etc.
     ```
 4.  **Prepare your data:**
     *   Place your Excel file (e.g., `radiology-reports.xlsx`) in the project root directory.
@@ -65,7 +67,7 @@ There are two main ways to use this pipeline:
     This will create separate output directories for each model specified in the script's `models` list.
 
 2.  **Anonymizing with a Single Model:**
-    To anonymize a report file using a single, pre-configured LLM (defaults to `qwen2.5-coder:32b` in the pipeline class, but check `llm_anonymization_pipeline.py` for the current default), run the main pipeline script directly:
+    To anonymize a report file using a single, pre-configured LLM (currently defaults to `qwen3:32b`), run the main pipeline script directly:
     ```bash
     python llm_anonymization_pipeline.py [path/to/your_excel_file.xlsx] [report_column_name]
     ```
@@ -91,9 +93,9 @@ There are two main ways to use this pipeline:
         *   `qwen2.5-coder:32b`
         *   `llama3.1:8b`
         *   `llama3.1:70b`
-        *   `llama3.3` (Assumed 70B based on paper context, adjust if needed)
+        *   `llama3.3:70b`
         *   `phi3:14b`
-        *   `phi4` (Specific size variant not mentioned, adjust if needed)
+        *   `phi4:14b`
     *   **`excel_file`**: Path to your input Excel file.
     *   **`report_column`**: Name of the column containing the report text.
     *   **`n_reports`**: Maximum number of reports to process from the Excel file (Paper used 1000 for evaluation).

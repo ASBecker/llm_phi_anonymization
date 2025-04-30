@@ -13,7 +13,7 @@ class AnonymizationPipeline:
     def __init__(
         self,
         regex_file="regex_rules.json",
-        llm_model="qwen2.5-coder:32b",
+        llm_model="qwen3:32b",
         continue_from=None,
         text_removal_threshold=15.0,
         results_dir="results_"
